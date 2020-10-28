@@ -1,0 +1,25 @@
+page-perfil {
+    .avatar {
+        border-radius: 100%;
+        position: absolute;
+    }
+
+    .info {
+        padding-top: 4px;
+    }
+
+    .edit-button {
+        background: #fff;
+        border: 1px solid #ccc;
+        font-size: 13px;
+        border-radius: 3px;
+        padding: 5px;
+        font-weight: bold;
+        width: 90%;
+        margin-right: 30px;
+    }
+
+    ion-icon {
+        color: black;
+    }
+}

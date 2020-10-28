@@ -1,0 +1,25 @@
+<ion-content padding>
+  <div padding>
+    <ion-item>
+      <ion-input required placeholder="Nome Completo" type="text" [(ngModel)]="nome"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input required placeholder="Usuário" type="text" [(ngModel)]="usuario"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input required placeholder="E-mail" type="email" [(ngModel)]="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input required placeholder="Senha" type="password" [(ngModel)]="senha"></ion-input>
+    </ion-item>
+    <button ion-button block outline color="light" class="register-button" (click)="cadastrar()">
+      Cadastrar
+    </button>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <div (click)="goToLogin()" class="container-register">
+    <span>Já tem uma conta? <strong>Faça login</strong>.</span>
+  </div>
+</ion-footer>

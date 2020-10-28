@@ -1,5 +1,8 @@
 {
   "name": "insta-clone",
-  "app_id": "",
-  "type": "ionic-angular"
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "app_id": ""
 }

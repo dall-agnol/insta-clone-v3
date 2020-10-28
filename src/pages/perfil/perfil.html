@@ -1,0 +1,98 @@
+<ion-header>
+
+  <ion-navbar color="white">
+    <ion-title> {{ user?.username }} </ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="logout()">
+        <ion-icon name="exit"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-row>
+    <ion-col col-3>
+      <img
+        [src]="user?.imageUser ? user?.imageUser : 'http://ionicframework.com/dist/preview-app/www/assets/img/sarah-avatar.png.jpeg'"
+        class="avatar">
+    </ion-col>
+    <ion-col col-3 text-center>
+      <h6> {{ images.length }} </h6>
+      <p no-padding no-margin>{{ images.length > 1 || images.length == 0 ? 'Postagens' : 'Postagem' }}</p>
+    </ion-col>
+    <ion-col col-3 text-center>
+      <h6>21</h6>
+      <p no-padding no-margin>seguidores</p>
+    </ion-col>
+    <ion-col col-3 text-center>
+      <h6>28</h6>
+      <p no-padding no-margin>seguindo</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row no-padding no-margin>
+    <ion-col no-padding no-margin col-4></ion-col>
+    <ion-col no-padding no-margin text-center col-8>
+      <button class="edit-button" (click)="goEditProfile()">
+        Editar seu perfil
+      </button>
+    </ion-col>
+    <ion-col col-3></ion-col>
+  </ion-row>
+
+  <div padding>
+    <p no-margin no-padding> {{ user?.name }} </p>
+    <p no-margin no-padding class="info"> {{ user?.description }} </p>
+  </div>
+
+  <div>
+    <ion-segment [(ngModel)]="profile_segment">
+      <ion-segment-button value="grid">
+        <ion-icon name="apps"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="list">
+        <ion-icon name="list"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="tagged" disabled>
+        <ion-icon name="photos"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="saved" disabled>
+        <ion-icon name="bookmark"></ion-icon>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div [ngSwitch]="profile_segment">
+    <ion-list *ngSwitchCase="'grid'">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4 class="grid_img" *ngFor="let image of images">
+            <img [src]="image.image">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'list'">
+      <ion-card *ngFor="let img of images" no-padding padding-bottom no-margin class="card">
+    
+        <img [src]="img.image">
+        <ion-card-content>
+          <p>
+            <b> {{img.username}} </b> {{ img.description }}
+          </p>
+    
+          <ion-note style="font-size: 12px;">
+            11h atrás
+          </ion-note>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+
+
+  </div>
+</ion-content>

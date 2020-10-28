@@ -1,0 +1,25 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Tirar Foto</ion-title>
+    <ion-buttons end right>
+      <button ion-button icon-only (click)="upload()">
+        <ion-icon name="md-share"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <div>
+    <img *ngIf="imagebase64" [src]="imagebase64" class="image-preview">
+  </div>
+
+  <div>
+    <ion-textarea *ngIf="imagebase64" cols="5" rows="5" maxlength="150" placeholder="Digite aqui a descrição da foto" [(ngModel)]="description"></ion-textarea>
+  </div>
+
+</ion-content>

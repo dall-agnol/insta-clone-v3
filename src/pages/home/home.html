@@ -1,17 +1,47 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-buttons start left (click)="openCamera()">
+      <button color="black" ion-button icon-only>
+        <ion-icon name="camera"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title style="border: 1px solid #ccc;" (click)="scrollToTop()">InstaClone</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content>
+  <ion-card *ngFor="let img of images" no-padding padding-bottom no-margin class="card">
+    <ion-row>
+      <ion-col col-10>
+        <ion-item class="item-card-user">
+          <ion-avatar item-left>
+            <img [src]="img.userimage">
+          </ion-avatar>
+          <h2 style="font-weight: bold;"> {{ img.username }} </h2>
+        </ion-item>
+      </ion-col>
+
+      <ion-col col-2 class="col-more-button">
+        <button ion-button icon-only no-margin no-padding clear color="black" style="float: right; top: 15px;"
+          (click)="share(img)">
+          <ion-icon name="share"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+
+    <img [src]="img.image">
+    <ion-card-content>
+      <p>
+        <b> {{img.username}} </b> {{ img.description }}
+      </p>
+
+      <ion-note style="font-size: 12px;">
+        11h atrás
+      </ion-note>
+    </ion-card-content>
+  </ion-card>
+
+  <div *ngIf="!images.length" text-center>
+    <h2>Nenhuma foto publicada.</h2>
+  </div>
 </ion-content>

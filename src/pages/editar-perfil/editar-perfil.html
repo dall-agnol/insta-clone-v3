@@ -1,0 +1,55 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons start left>
+      <button ion-button icon-only (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Editar perfil</ion-title>
+    <ion-buttons end right>
+      <button ion-button icon-only (click)="update()">
+        <ion-icon name="checkmark" color="primary"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div text-center>
+    <img [src]="user?.imageUser" class="edit-avatar">
+    <p class="change-text" (click)="changePhoto()">{{ user.imageUser ? 'Alterar' : 'Tirar' }} Foto</p>
+  </div>
+
+  <ion-item>
+    <ion-label>
+      <ion-icon name="clipboard" color="gray"></ion-icon>
+    </ion-label>
+    <ion-input type="text" [(ngModel)]="user.name"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>
+      <ion-icon name="person" color="gray"></ion-icon>
+    </ion-label>
+    <ion-input type="text" [(ngModel)]="user.username"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>
+      <ion-icon name="quote" color="gray"></ion-icon>
+    </ion-label>
+    <ion-input type="text" [(ngModel)]="user.description"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>
+      <ion-icon name="mail" color="gray"></ion-icon>
+    </ion-label>
+    <ion-input type="email" [(ngModel)]="user.email"></ion-input>
+  </ion-item>
+
+</ion-content>
